@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "funz-http"
+version = "0.1.0"
+description = "HTTP API for the fz parametric scientific computing framework"
+readme = "README.md"
+license = {text = "BSD-3-Clause"}
+authors = [
+    {name = "FZ Team"}
+]
+keywords = ["parametric", "computing", "simulation", "http", "api", "fastapi", "funz"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Framework :: FastAPI",
+]
+requires-python = ">=3.9"
+dependencies = [
+    "funz-fz>=1.1",
+    "fastapi>=0.100",
+    "uvicorn[standard]>=0.23",
+    "pydantic>=2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "httpx>=0.24",
+]
+
+[project.urls]
+"Source" = "https://github.com/funz/fz.http"
+"Related" = "https://github.com/funz/fz"
+
+[project.scripts]
+fz-http = "fz_http.cli:main"
+
+[tool.setuptools]
+packages = ["fz_http"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+addopts = "-v --tb=short"
