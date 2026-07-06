@@ -1,4 +1,4 @@
-"""fz-http: HTTP API for the fz parametric scientific computing framework."""
+"""fz-api: HTTP API for the fz parametric scientific computing framework."""
 
 __version__ = "0.1.0"
 

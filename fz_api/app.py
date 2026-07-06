@@ -26,5 +26,5 @@ def create_app() -> FastAPI:
     return app
 
 
-# Module-level app for `uvicorn fz_http.app:app`.
+# Module-level app for `uvicorn fz_api.app:app`.
 app = create_app()

@@ -1,4 +1,4 @@
-// Example fz-http client using only the JDK (java.net.http, Java 11+).
+// Example fz-api client using only the JDK (java.net.http, Java 11+).
 //
 // Runs the full flow against a running server:
 //   1. health check
@@ -11,7 +11,7 @@
 // For real projects, prefer a JSON library (Jackson, Gson).
 //
 // Run (Java 17):
-//   java FzHttpClient.java [BASE_URL]      // default http://localhost:8000
+//   java FzApiClient.java [BASE_URL]      // default http://localhost:8000
 
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -20,7 +20,7 @@ import java.net.http.HttpResponse;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class FzHttpClient {
+public class FzApiClient {
 
     static String base = "http://localhost:8000";
     // Force HTTP/1.1: the default HTTP/2 upgrade is mishandled by the

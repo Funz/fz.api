@@ -1,4 +1,4 @@
-"""Command-line entry point: ``fz-http`` runs the server via uvicorn."""
+"""Command-line entry point: ``fz-api`` runs the server via uvicorn."""
 
 import argparse
 
@@ -7,9 +7,9 @@ from . import __version__
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        prog="fz-http", description="Serve the fz HTTP API"
+        prog="fz-api", description="Serve the fz HTTP API"
     )
-    parser.add_argument("--version", action="version", version=f"fz-http {__version__}")
+    parser.add_argument("--version", action="version", version=f"fz-api {__version__}")
     parser.add_argument("--host", default="127.0.0.1", help="Bind host (default: 127.0.0.1)")
     parser.add_argument("--port", type=int, default=8000, help="Bind port (default: 8000)")
     parser.add_argument("--reload", action="store_true", help="Auto-reload (development)")
@@ -21,7 +21,7 @@ def main() -> None:
     import uvicorn
 
     uvicorn.run(
-        "fz_http.app:app",
+        "fz_api.app:app",
         host=args.host,
         port=args.port,
         reload=args.reload,

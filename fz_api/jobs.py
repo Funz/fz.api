@@ -82,7 +82,7 @@ class JobManager:
         proc = self._ctx.Process(
             target=_child_main,
             args=(kind, payload, queue),
-            name=f"fzhttp-job-{job.job_id}",
+            name=f"fzapi-job-{job.job_id}",
             daemon=True,
         )
 
@@ -105,7 +105,7 @@ class JobManager:
                     job.finished_at = time.time()
 
         threading.Thread(
-            target=_supervise, name=f"fzhttp-sup-{job.job_id}", daemon=True
+            target=_supervise, name=f"fzapi-sup-{job.job_id}", daemon=True
         ).start()
         return job
 

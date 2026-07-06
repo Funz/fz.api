@@ -3,7 +3,7 @@ requires = ["setuptools>=45", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "funz-http"
+name = "funz-api"
 version = "0.1.0"
 description = "HTTP API for the fz parametric scientific computing framework"
 readme = "README.md"
@@ -38,14 +38,14 @@ dev = [
 ]
 
 [project.urls]
-"Source" = "https://github.com/funz/fz.http"
+"Source" = "https://github.com/funz/fz.api"
 "Related" = "https://github.com/funz/fz"
 
 [project.scripts]
-fz-http = "fz_http.cli:main"
+fz-api = "fz_api.cli:main"
 
 [tool.setuptools]
-packages = ["fz_http"]
+packages = ["fz_api"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

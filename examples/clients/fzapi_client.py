@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Example fz-http client using only the Python standard library.
+"""Example fz-api client using only the Python standard library.
 
 Runs the full flow against a running server:
   1. health check
@@ -8,7 +8,7 @@ Runs the full flow against a running server:
   4. poll the job until it completes    (GET  /runs/{id})
 
 Usage:
-    python fzhttp_client.py [BASE_URL]      # default http://localhost:8000
+    python fzapi_client.py [BASE_URL]      # default http://localhost:8000
 """
 
 import json

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Example fz-http client using curl + jq.
+# Example fz-api client using curl + jq.
 #
 # Demonstrates the full flow against a running server:
 #   1. health check
@@ -11,7 +11,7 @@
 # Requires: curl, jq
 #
 # Usage:
-#   ./fzhttp_client.sh [BASE_URL]      # default http://localhost:8000
+#   ./fzapi_client.sh [BASE_URL]      # default http://localhost:8000
 set -euo pipefail
 
 BASE="${1:-http://localhost:8000}"

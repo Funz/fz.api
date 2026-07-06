@@ -1,7 +1,7 @@
 import pytest
 from fastapi.testclient import TestClient
 
-from fz_http.app import create_app
+from fz_api.app import create_app
 
 # A minimal inline model: `$` prefix, `{}` delimiters, one output command that
 # echoes the compiled x value into result.txt and reads it back.

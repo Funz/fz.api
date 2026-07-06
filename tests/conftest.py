@@ -14,7 +14,7 @@ import pytest
 @pytest.fixture(autouse=True)
 def _isolated_cwd():
     prev = os.getcwd()
-    with tempfile.TemporaryDirectory(prefix="fzhttp-test-") as tmp:
+    with tempfile.TemporaryDirectory(prefix="fzapi-test-") as tmp:
         os.chdir(tmp)
         try:
             yield tmp

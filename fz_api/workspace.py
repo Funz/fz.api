@@ -45,7 +45,7 @@ def workspace(input_files: Optional[Dict[str, str]] = None):
 
     Yields the workspace :class:`~pathlib.Path`.
     """
-    tmp = Path(tempfile.mkdtemp(prefix="fzhttp-"))
+    tmp = Path(tempfile.mkdtemp(prefix="fzapi-"))
     try:
         for rel, content in (input_files or {}).items():
             dest = _safe_join(tmp, rel)

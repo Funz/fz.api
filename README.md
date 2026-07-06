@@ -1,4 +1,4 @@
-# fz-http
+# fz-api
 
 An HTTP API for [**fz**](https://github.com/funz/fz) (`funz-fz`), the parametric
 scientific computing framework. It exposes fz's public functions
@@ -27,7 +27,7 @@ maintain alongside fz.
 ## Install
 
 ```bash
-pip install funz-http          # pulls funz-fz, fastapi, uvicorn
+pip install funz-api          # pulls funz-fz, fastapi, uvicorn
 # or, for local development against a checkout:
 pip install -e ".[dev]"
 ```
@@ -35,14 +35,14 @@ pip install -e ".[dev]"
 ## Run
 
 ```bash
-fz-http --host 0.0.0.0 --port 8000        # start the server
+fz-api --host 0.0.0.0 --port 8000        # start the server
 # interactive OpenAPI docs at http://localhost:8000/docs
 ```
 
 Or with uvicorn directly:
 
 ```bash
-uvicorn fz_http.app:app --reload
+uvicorn fz_api.app:app --reload
 ```
 
 CLI flags:
@@ -53,7 +53,7 @@ CLI flags:
 | `--port` | `8000` | Bind port |
 | `--reload` | off | Auto-reload on code changes (development) |
 | `--workers` | `1` | Number of worker processes |
-| `--version` | – | Print the fz-http version and exit |
+| `--version` | – | Print the fz-api version and exit |
 
 ## Quickstart
 
@@ -324,12 +324,12 @@ argument (default `http://localhost:8000`):
 
 ```bash
 # start the server in one terminal
-fz-http --port 8000
+fz-api --port 8000
 
 # then run any client against it
-bash   examples/clients/fzhttp_client.sh     http://localhost:8000   # needs curl + jq
-python examples/clients/fzhttp_client.py     http://localhost:8000
-java   examples/clients/FzHttpClient.java     http://localhost:8000   # Java 11+
+bash   examples/clients/fzapi_client.sh     http://localhost:8000   # needs curl + jq
+python examples/clients/fzapi_client.py     http://localhost:8000
+java   examples/clients/FzApiClient.java     http://localhost:8000   # Java 11+
 ```
 
 ### Shell (curl + jq)
@@ -413,12 +413,12 @@ HttpResponse<String> resp = http.send(req, HttpResponse.BodyHandlers.ofString())
 System.out.println(resp.body());   // {"job_id": "...", "status": "running", ...}
 ```
 
-See [`FzHttpClient.java`](examples/clients/FzHttpClient.java) for the full version
+See [`FzApiClient.java`](examples/clients/FzApiClient.java) for the full version
 that also polls `GET /runs/{id}` until completion.
 
 ## Architecture & design notes
 
-- **Decoupling.** `fz_http` only imports fz's public API; it never reaches into
+- **Decoupling.** `fz_api` only imports fz's public API; it never reaches into
   fz internals. If it ever needs to grow (auth, DB, web UI) it can, without
   touching the fz repo.
 - **Concurrency & cwd safety.** fz core functions call `os.chdir` on the
